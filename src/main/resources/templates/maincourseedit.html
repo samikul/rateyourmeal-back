@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Add meal</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Edit meal</h1>
+		<form action="#" th:action="@{../save}" th:object=${maincourse}
+			method="post">
+			<div class="form-group">
+				<label for="MainCourse">Main course:</label> <input type="text"
+					th:field="${maincourse.meal}" class="form-control"
+					placeholder="Enter main course" />
+			</div>
+			<div>
+				<label for="sidedishlist">Side dish:</label> <select
+					id="sidedishlist" th:field="*{sidedish}" class="form-control">
+					<option th:each="sidedish: ${sidedish}"
+						th:value="${sidedish.sidedishid}" th:text="${sidedish.sidedish}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="Date">Date:</label> <input type="date"
+					th:field="${maincourse.date}" class="form-control"
+					placeholder="Enter date" />
+			</div>
+			<div class="form-group">
+				<label for="Price">Price:</label> <input type="text"
+					th:field="${maincourse.price}" class="form-control"
+					placeholder="Enter price" />
+			</div>
+			<div class="form-group">
+				<label for="NumberOfRedGlasses">Number of red glasses:</label> <input
+					type="text" th:field="${maincourse.numberOfRedGlasses}"
+					class="form-control" placeholder="Enter the number of red glasses" />
+			</div>
+			<div class="form-group">
+				<label for="Comment">Comment:</label> <input
+					type="text" th:field="${maincourse.comment}"
+					class="form-control" placeholder="Enter comment" />
+			</div>
+			<div>
+				<label for="ratinglist">Rating:</label> <select id="ratinglist"
+					th:field="*{rating}" class="form-control">
+					<option th:each="rating: ${rating}" th:value="${rating.ratingid}"
+						th:text="${rating.rating}"></option>
+				</select>
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="Submit" class="btn btn-success btn-sm" />
+				<input type="reset" value="Reset" class="btn btn-warning btn-sm" />
+				<a class="btn btn-info btn-sm" href="/maincourselist"><span
+					class="glyphicon glyphicon-list"></span> Main courses</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

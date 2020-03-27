@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>All side dishes</title>
+</head>
+<body>
+	<div class="col-md-4">
+		<h1>Side dishes</h1>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Welcome
+			[[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	<div class="col-md-4" style="padding: 20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+		</form>
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<th>Id</th>
+			<th>Side dish</th>
+			<th sec:authorize="hasAuthority('ADMIN')"></th>
+			<th sec:authorize="hasAuthority('ADMIN')"></th>
+		</tr>
+		<tr th:each="sidedish : ${sidedishes}">
+			<td th:text="${sidedish.sidedishid}">id</td>
+			<td th:text="${sidedish.sidedish}">side dish</td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a
+				class="btn btn-danger btn-sm"
+				th:href="@{/deletesidedish/{id}(id=${sidedish.sidedishid})}"><span
+					class="glyphicon glyphicon-trash"></span> Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a
+				class="btn btn-primary btn-sm"
+				th:href="@{/editsidedish/{id}(id=${sidedish.sidedishid})}"><span
+					class="glyphicon glyphicon-pencil"></span> Edit</a></td>
+		</tr>
+	</table>
+	<a class="btn btn-success btn-sm" href="/addmaincourse"><span
+		class="glyphicon glyphicon-plus"></span> New meal</a>
+	<a class="btn btn-success btn-sm" href="/addsidedish"><span
+		class="glyphicon glyphicon-plus"></span> New sidedish</a>
+	<a class="btn btn-info btn-sm" href="/maincourselist"><span
+		class="glyphicon glyphicon-list"></span> Main course list</a>
+</body>
+</html>
