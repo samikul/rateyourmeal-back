@@ -40,9 +40,9 @@
 					class="form-control" placeholder="Enter the number of red glasses" />
 			</div>
 			<div class="form-group">
-				<label for="Comment">Comment:</label> <input
-					type="text" th:field="${maincourse.comment}"
-					class="form-control" placeholder="Enter comment" />
+				<label for="Comment">Comment:</label> <input type="text"
+					th:field="${maincourse.comment}" class="form-control"
+					placeholder="Enter comment" />
 			</div>
 			<div>
 				<label for="ratinglist">Rating:</label> <select id="ratinglist"
@@ -56,7 +56,9 @@
 				<input type="submit" value="Submit" class="btn btn-success btn-sm" />
 				<input type="reset" value="Reset" class="btn btn-warning btn-sm" />
 				<a class="btn btn-info btn-sm" href="/maincourselist"><span
-					class="glyphicon glyphicon-list"></span> Main courses</a>
+					class="glyphicon glyphicon-list"></span> Main courses</a> <a
+					class="btn btn-success btn-sm" href="/sidedishlist"><span
+					class="glyphicon glyphicon-plus"></span> Side dishes</a>
 			</div>
 		</form>
 	</div>

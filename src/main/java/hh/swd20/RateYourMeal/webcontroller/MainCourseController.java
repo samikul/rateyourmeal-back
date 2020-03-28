@@ -35,12 +35,6 @@ public class MainCourseController {
 		return "login";
 	}
 
-	// login page
-	@RequestMapping("/index")
-	public String hello() {
-		return "index";
-	}
-
 	// Add new meal
 	@RequestMapping(value="/addmaincourse")
 	public String addMaincourse(Model model) {
@@ -83,11 +77,11 @@ public class MainCourseController {
 		return "maincourseedit";
 	}
 
-	//	// RESTful service to get all meals
-	//	@RequestMapping(value = "/maincourses", method = RequestMethod.GET)
-	//	public @ResponseBody List<MainCourse> maincourseListRest() {
-	//		return (List<MainCourse> mcrepository.findAll());
-	//	}
+//		// RESTful service to get all meals
+//		@RequestMapping(value = "/maincourses", method = RequestMethod.GET)
+//		public @ResponseBody List<MainCourse> maincourseListRest() {
+//			return (List<MainCourse> mcrepository.findAll());
+//		}
 
 	// RESTful service to get meal by id
 	@RequestMapping(value="/maincourse/{maincourseid}", method = RequestMethod.GET)
