@@ -67,7 +67,8 @@ public class RateYourMealApplication {
 			}
 			for (Rating rating : rrepository.findAll()) {
 				log.info(rating.toString());
-			}			
+			}
+
 		};
 	}
 }

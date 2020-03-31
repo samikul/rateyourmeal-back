@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "sidedish")
@@ -16,6 +17,8 @@ public class SideDish {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sidedishid;
+	
+	@NotNull
 	private String sidedish;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sidedish")

@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,14 +23,22 @@ public class MainCourse {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long maincourseid;
+
+	@NotEmpty
 	private String meal;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-//	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate date;
+
+	@Min(1)
 	private Double price;
+
+	@Max(3)
 	private Long numberOfRedGlasses;
+
+	@NotEmpty
 	private String comment;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "sidedishid")
 	private SideDish sidedish;
@@ -36,7 +47,7 @@ public class MainCourse {
 	@JsonIgnore
 	@JoinColumn(name = "ratingid")
 	private Rating rating;
-	
+
 	public MainCourse() {
 
 	}
@@ -108,7 +119,7 @@ public class MainCourse {
 	public void setSidedish(SideDish sidedish) {
 		this.sidedish = sidedish;
 	}
-	
+
 	public Rating getRating() {
 		return rating;
 	}

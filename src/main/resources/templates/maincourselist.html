@@ -34,10 +34,10 @@
 		</tr>
 		<tr th:each="maincourse : ${maincourses}">
 			<td th:text="${maincourse.maincourseid}">id</td>
-			<td th:text="${maincourse.meal}">id</td>
+			<td th:text="${maincourse.meal}">maincourse</td>
 			<td th:text="${maincourse.sidedish.sidedish}">sidedish</td>
 			<td th:text="${maincourse.date}">date</td>
-			<td th:text="${maincourse.price}">date</td>
+			<td th:text="${maincourse.price}">price</td>
 			<td th:text="${maincourse.numberOfRedGlasses}">red glasses</td>
 			<td th:text="${maincourse.comment}">comment</td>
 			<td th:text="${maincourse.rating.rating}">date</td>

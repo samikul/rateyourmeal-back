@@ -7,16 +7,18 @@
 <title>Add meal</title>
 </head>
 <body>
-
+ 
 	<div class="container">
 		<h1>Add a new meal</h1>
+
 		<form action="#" th:action="@{/save}" th:object=${maincourse}
 			method="post">
 			<div class="form-group">
 				<label for="MainCourse">Main course:</label> <input type="text"
 					th:field="${maincourse.meal}" class="form-control"
-					placeholder="Enter main course" />
+					placeholder="Enter main course" required="required" /> 
 			</div>
+			<div th:if="${#fields.hasErrors('meal')}" th:errors="*{meal}">errors</div>
 			<div>
 				<label for="sidedishlist">Side dish:</label> <select
 					id="sidedishlist" th:field="*{sidedish}" class="form-control">
@@ -27,23 +29,27 @@
 			<div class="form-group">
 				<label for="Date">Date:</label> <input type="date"
 					th:field="${maincourse.date}" class="form-control"
-					placeholder="Enter date" />
+					placeholder="Enter date" required="required" /> 
 			</div>
 			<div class="form-group">
 				<label for="Price">Price:</label> <input type="text"
 					th:field="${maincourse.price}" class="form-control"
-					placeholder="Enter price" />
+					placeholder="Enter price" required="required" /> 
 			</div>
+			<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">errors</div>
 			<div class="form-group">
 				<label for="NumberOfRedGlasses">Number of red glasses:</label> <input
 					type="text" th:field="${maincourse.numberOfRedGlasses}"
-					class="form-control" placeholder="Enter the number of red glasses" />
+					class="form-control" placeholder="Enter the number of red glasses" required="required" /> 
 			</div>
+			<div th:if="${#fields.hasErrors('numberOfRedGlasses')}"
+							th:errors="*{numberOfRedGlasses}">errors</div>
 			<div class="form-group">
 				<label for="Comment">Comment:</label> <input type="text"
 					th:field="${maincourse.comment}" class="form-control"
-					placeholder="Enter comment" />
+					placeholder="Enter comment" required="required" /> 
 			</div>
+			<div th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">errors</div>
 			<div>
 				<label for="ratinglist">Rating:</label> <select id="ratinglist"
 					th:field="*{rating}" class="form-control">
@@ -62,5 +68,64 @@
 			</div>
 		</form>
 	</div>
+	<!--
+	<div>
+		<form action="#" th:action="@{/save}" th:object="${maincourse}"
+			method="post">
+			<table>
+				<tr>
+					<td>Main course:</td>
+					<td><input type="text" th:field="${maincourse.meal}" /></td>
+					<td>
+						<div th:if="${#fields.hasErrors('meal')}" th:errors="*{meal}">errors</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Side dish:</td>
+					<td><select id="sidedishlist" th:field="*{sidedish}"
+						class="form-control">
+							<option th:each="sidedish: ${sidedish}"
+								th:value="${sidedish.sidedishid}" th:text="${sidedish.sidedish}"></option>
+					</select>
+				</tr>
+				<tr>
+					<td>Date:</td>
+					<td><input type="date" th:field="${maincourse.date}"
+						class="form-control" placeholder="Enter date" /></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" th:field="${maincourse.price}" /></td>
+					<td>
+						<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">errors</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Red glasses:</td>
+					<td><input type="text"
+						th:field="${maincourse.numberOfRedGlasses}" /></td>
+					<td>
+						<div th:if="${#fields.hasErrors('numberOfRedGlasses')}"
+							th:errors="*{numberOfRedGlasses}">errors</div>
+					</td>
+				<tr>
+					<td>Comment:</td>
+					<td><input type="text" th:field="${maincourse.comment}" /></td>
+				<tr>
+					<td>Rating:</td>
+					<td><select id="ratinglist" th:field="*{rating}"
+						class="form-control">
+							<option th:each="rating: ${rating}" th:value="${rating.ratingid}"
+								th:text="${rating.rating}"></option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<input type="submit" value="Submit" />
+				</tr>
+			</table>
+		</form>
+	</div>
+-->
 </body>
 </html>
