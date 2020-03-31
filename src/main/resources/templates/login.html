@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	-->
 <title>RateYourMeal login</title>
 </head>
 <body>
+	<!-- 
 	<div th:if="${param.error}">Invalid username and password.</div>
 	<div th:if="${param.logout}">You have been logged out.</div>
 	<form th:action="@{/login}" method="post">
@@ -23,12 +23,14 @@
 			<input type="submit" value="Sign In" />
 		</div>
 	</form>
+-->
 
 
-	<!-- 
 	<div class="container">
 		<h2>Login page</h2>
-	
+
+		<div th:if="${param.error}">Invalid username or password.</div>
+		<div th:if="${param.logout}">You have been logged out.</div>
 		<form class="form-horizontal" th:action="@{/login}" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="Username">Username:
@@ -53,7 +55,7 @@
 			</div>
 		</form>
 	</div>
--->
+
 
 </body>
 </html>
