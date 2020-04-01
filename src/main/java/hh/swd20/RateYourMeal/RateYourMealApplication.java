@@ -51,12 +51,12 @@ public class RateYourMealApplication {
 			rrepository.save(new Rating("5/5"));
 
 			log.info("tallennetaan testiruuat");
-			mcrepository.save(new MainCourse("Punajuurikroketteja", LocalDate.of(2020, 03, 30), 1.77, 0, "Tarjolla oli myös tillikermaviilikastiketta.", sdrepository.findBySidedish("Keitettyjä perunoita").get(0), rrepository.findByRating("2/5").get(0)));		
-			mcrepository.save(new MainCourse("Jauhelihakastiketta", LocalDate.of(2020, 03, 30), 1.77, 0, "Hapankorppujen päälle levitin valkosipulilevitettä.", sdrepository.findBySidedish("Keitettyjä perunoita").get(0), rrepository.findByRating("3/5").get(0)));		
-			mcrepository.save(new MainCourse("Chili con vege", LocalDate.of(2020, 03, 30), 1.77, 2, "Oli ihan okei eli ei siitä sen enempää.", sdrepository.findBySidedish("Höyrytettyä tummaa riisiä").get(0), rrepository.findByRating("4/5").get(0)));		
-			mcrepository.save(new MainCourse("Lihapyöryköitä ja pippurikastiketta", LocalDate.of(2020, 03, 30), 1.77, 1, "Jälkiruokana oli mangorahkaa kerroksittain.", sdrepository.findBySidedish("Perunasosetta").get(0), rrepository.findByRating("4/5").get(0)));		
-			mcrepository.save(new MainCourse("Juurespyttipannua", LocalDate.of(2020, 03, 30), 1.77, 0, "Tarjolla oli myös maukasta sinappimajoneesia.", sdrepository.findBySidedish("Ei lisuketta").get(0), rrepository.findByRating("5/5").get(0)));		
-			mcrepository.save(new MainCourse("Juustoista savupalvikastiketta", LocalDate.of(2020, 03, 30), 1.77, 1, "Juuh elikkäs aika hyvää.", sdrepository.findBySidedish("Luomutäysjyväpennepastaa").get(0), rrepository.findByRating("4/5").get(0)));		
+			mcrepository.save(new MainCourse("Punajuurikroketteja", LocalDate.of(2020, 03, 11), 1.77, 0, "Tarjolla oli myös tillikermaviilikastiketta.", sdrepository.findBySidedish("Keitettyjä perunoita").get(0), rrepository.findByRating("2/5").get(0)));		
+			mcrepository.save(new MainCourse("Jauhelihakastiketta", LocalDate.of(2020, 03, 12), 1.77, 0, "Hapankorppujen päälle levitin valkosipulilevitettä.", sdrepository.findBySidedish("Keitettyjä perunoita").get(0), rrepository.findByRating("3/5").get(0)));		
+			mcrepository.save(new MainCourse("Chili con vege", LocalDate.of(2020, 03, 13), 1.77, 2, "Oli ihan okei eli ei siitä sen enempää.", sdrepository.findBySidedish("Höyrytettyä tummaa riisiä").get(0), rrepository.findByRating("4/5").get(0)));		
+			mcrepository.save(new MainCourse("Lihapyöryköitä ja pippurikastiketta", LocalDate.of(2020, 03, 14), 1.77, 1, "Jälkiruokana oli mangorahkaa kerroksittain.", sdrepository.findBySidedish("Perunasosetta").get(0), rrepository.findByRating("4/5").get(0)));		
+			mcrepository.save(new MainCourse("Juurespyttipannua", LocalDate.of(2020, 03, 15), 1.77, 0, "Tarjolla oli myös maukasta sinappimajoneesia.", sdrepository.findBySidedish("Ei lisuketta").get(0), rrepository.findByRating("5/5").get(0)));		
+			mcrepository.save(new MainCourse("Juustoista savupalvikastiketta", LocalDate.of(2020, 03, 16), 1.77, 1, "Juuh elikkäs aika hyvää.", sdrepository.findBySidedish("Luomutäysjyväpennepastaa").get(0), rrepository.findByRating("4/5").get(0)));		
 
 			log.info("haetaan kaikki lisukkeet, ruuat ja arvosanat");
 			for (SideDish sidedish : sdrepository.findAll()) {

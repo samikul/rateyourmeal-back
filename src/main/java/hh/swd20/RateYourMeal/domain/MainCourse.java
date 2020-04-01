@@ -49,7 +49,6 @@ public class MainCourse {
 	private Rating rating;
 
 	public MainCourse() {
-
 	}
 
 	public MainCourse(String meal, LocalDate date, Double price, long numberOfRedGlasses, String comment,
@@ -84,7 +83,7 @@ public class MainCourse {
 		return date;
 	}
 
-	public void setLocalDate(LocalDate date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

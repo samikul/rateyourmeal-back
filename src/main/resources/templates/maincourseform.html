@@ -31,15 +31,16 @@
 					th:field="${maincourse.date}" class="form-control"
 					placeholder="Enter date" required="required" /> 
 			</div>
+						
 			<div class="form-group">
-				<label for="Price">Price:</label> <input type="text"
+				<label for="Price">Price:</label> <input type="number" step="0.01"
 					th:field="${maincourse.price}" class="form-control"
 					placeholder="Enter price" required="required" /> 
 			</div>
 			<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">errors</div>
 			<div class="form-group">
 				<label for="NumberOfRedGlasses">Number of red glasses:</label> <input
-					type="text" th:field="${maincourse.numberOfRedGlasses}"
+					type="number" th:field="${maincourse.numberOfRedGlasses}"
 					class="form-control" placeholder="Enter the number of red glasses" required="required" /> 
 			</div>
 			<div th:if="${#fields.hasErrors('numberOfRedGlasses')}"

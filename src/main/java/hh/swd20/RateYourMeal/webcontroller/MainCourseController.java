@@ -66,28 +66,9 @@ public class MainCourseController implements WebMvcConfigurer{
 			mcrepository.save(maincourse);
 		}
 		return "redirect:/maincourselist";
-
+		
 	}
-	
-	
-//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-//	public String checkMaincourseformInfo(@Valid @ModelAttribute("maincourse") MainCourse maincourse, BindingResult bindingResult) {
-//
-//		if (bindingResult.hasErrors()) {
-//			return "maincourseform";
-//		} else {
-//			mcrepository.save(maincourse);
-//		}
-//
-//		return "redirect:/maincourselist";
-//
-//	}
-	
-	
-	
-	
-	
-	
+
 	//
 	//	// save meal
 	//	@RequestMapping(value = "/save", method = RequestMethod.POST)
