@@ -56,7 +56,7 @@ public class MainCourseController implements WebMvcConfigurer{
 		return "maincourselist";
 	}
 
-
+	// save meal
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String checkMaincourseformInfo(@Valid @ModelAttribute("maincourse") MainCourse maincourse, BindingResult bindingResult, Model model) {
 
@@ -66,16 +66,15 @@ public class MainCourseController implements WebMvcConfigurer{
 			mcrepository.save(maincourse);
 		}
 		return "redirect:/maincourselist";
-		
 	}
 
-	//
-	//	// save meal
-	//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	//	public String saveMeal(@ModelAttribute MainCourse maincourse) {
-	//		mcrepository.save(maincourse);
-	//		return "redirect:/maincourselist";
-	//	}
+
+//	// save meal
+//	@RequestMapping(value = "/save", method = RequestMethod.POST)
+//	public String saveMeal(@ModelAttribute MainCourse maincourse) {
+//		mcrepository.save(maincourse);
+//		return "redirect:/maincourselist";
+//	}
 
 	// delete meal
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -95,24 +94,15 @@ public class MainCourseController implements WebMvcConfigurer{
 		return "maincourseedit";
 	}
 
-	//		// RESTful service to get all meals
-	//		@RequestMapping(value = "/maincourses", method = RequestMethod.GET)
-	//		public @ResponseBody List<MainCourse> maincourseListRest() {
-	//			return (List<MainCourse> mcrepository.findAll());
-	//		}
+	// RESTful service to get all meals
+	@RequestMapping(value = "/maincourses", method = RequestMethod.GET)
+	public @ResponseBody List<MainCourse> maincourseListRest() {
+		return ((List<MainCourse>) mcrepository.findAll());
+	}
 
 	// RESTful service to get meal by id
 	@RequestMapping(value="/maincourse/{maincourseid}", method = RequestMethod.GET)
 	public @ResponseBody Optional<MainCourse> findMaincourseRest(@PathVariable("maincourseid") Long maincourseid) {
 		return mcrepository.findById(maincourseid);
 	}	
-
 }
-
-
-//// save meal
-//@RequestMapping(value = "/save", method = RequestMethod.POST)
-//public String saveMeal(@ModelAttribute MainCourse maincourse) {
-//	mcrepository.save(maincourse);
-//	return "redirect:/maincourselist";
-//}

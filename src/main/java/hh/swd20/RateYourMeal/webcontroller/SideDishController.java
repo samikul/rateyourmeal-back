@@ -1,6 +1,7 @@
 package hh.swd20.RateYourMeal.webcontroller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import hh.swd20.RateYourMeal.domain.SideDish;
 import hh.swd20.RateYourMeal.domain.SideDishRepository;
@@ -58,4 +60,16 @@ public class SideDishController {
 		model.addAttribute("sidedish", sdrepository.findById(sidedishid));
 		return "sidedishedit";
 	}
+
+	// RESTful service to get all sidedishes
+	@RequestMapping(value = "/sidedishes", method = RequestMethod.GET)
+	public @ResponseBody List<SideDish> sidedishListRest() {
+		return ((List<SideDish>) sdrepository.findAll());
+	}
+
+	// RESTful service to get sidedish by id
+	@RequestMapping(value="/sidedish/{maincourseid}", method = RequestMethod.GET)
+	public @ResponseBody Optional<SideDish> findSidedishRest(@PathVariable("sidedishid") Long sidedishid) {
+		return sdrepository.findById(sidedishid);
+	}	
 }
