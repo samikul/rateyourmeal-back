@@ -16,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "maincourses")
@@ -45,6 +46,7 @@ public class MainCourse {
 
 	@ManyToOne
 	@JsonIgnore
+	@JsonManagedReference 
 	@JoinColumn(name = "ratingid")
 	private Rating rating;
 

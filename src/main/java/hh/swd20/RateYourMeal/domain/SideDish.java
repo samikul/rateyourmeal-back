@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "sidedish")
 public class SideDish {
@@ -21,6 +23,7 @@ public class SideDish {
 	@NotEmpty
 	private String sidedish;
 	
+	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sidedish")
 	private List<MainCourse> maincourses;
 
