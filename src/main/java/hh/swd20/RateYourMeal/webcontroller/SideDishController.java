@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,13 +63,15 @@ public class SideDishController {
 	}
 
 	// RESTful service to get all sidedishes
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value = "/sidedishes", method = RequestMethod.GET)
 	public @ResponseBody List<SideDish> sidedishListRest() {
 		return ((List<SideDish>) sdrepository.findAll());
 	}
 
 	// RESTful service to get sidedish by id
-	@RequestMapping(value="/sidedish/{maincourseid}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(value="/sidedish/{sidedishid}", method = RequestMethod.GET)
 	public @ResponseBody Optional<SideDish> findSidedishRest(@PathVariable("sidedishid") Long sidedishid) {
 		return sdrepository.findById(sidedishid);
 	}	
