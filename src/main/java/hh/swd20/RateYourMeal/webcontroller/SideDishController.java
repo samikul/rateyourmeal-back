@@ -18,6 +18,7 @@ import hh.swd20.RateYourMeal.domain.SideDish;
 import hh.swd20.RateYourMeal.domain.SideDishRepository;
 
 @Controller
+@CrossOrigin
 public class SideDishController {
 
 	@Autowired
@@ -63,14 +64,12 @@ public class SideDishController {
 	}
 
 	// RESTful service to get all sidedishes
-	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value = "/sidedishes", method = RequestMethod.GET)
 	public @ResponseBody List<SideDish> sidedishListRest() {
 		return ((List<SideDish>) sdrepository.findAll());
 	}
 
 	// RESTful service to get sidedish by id
-	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value="/sidedish/{sidedishid}", method = RequestMethod.GET)
 	public @ResponseBody Optional<SideDish> findSidedishRest(@PathVariable("sidedishid") Long sidedishid) {
 		return sdrepository.findById(sidedishid);
