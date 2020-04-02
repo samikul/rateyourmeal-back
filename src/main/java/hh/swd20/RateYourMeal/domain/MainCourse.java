@@ -130,7 +130,8 @@ public class MainCourse {
 	@Override
 	public String toString() {
 		return "MainCourse [maincourseid=" + maincourseid + ", meal=" + meal + ", date=" + date + ", price=" + price
-				+ ", numberOfRedGlasses=" + numberOfRedGlasses + ", comment=" + comment + ", sidedish=" + sidedish
-				+ ", rating=" + rating + "]";
-	}	
+				+ ", numberOfRedGlasses=" + numberOfRedGlasses + ", comment=" + comment + "]";
+	}
+	
+	
 }
