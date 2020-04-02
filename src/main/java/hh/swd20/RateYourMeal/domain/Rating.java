@@ -52,8 +52,4 @@ public class Rating {
 		this.maincourses = maincourses;
 	}
 
-	@Override
-	public String toString() {
-		return "Rating [ratingid=" + ratingid + ", rating=" + rating + "]";
-	}
 }

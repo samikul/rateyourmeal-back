@@ -59,9 +59,5 @@ public class SideDish {
 		this.maincourses = maincourses;
 	}
 
-	@Override
-	public String toString() {
-		return "SideDish [sidedishid=" + sidedishid + ", sidedish=" + sidedish + "]";
-	}
 		
 }
