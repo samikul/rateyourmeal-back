@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ import hh.swd20.RateYourMeal.domain.RatingRepository;
 import hh.swd20.RateYourMeal.domain.SideDishRepository;
 
 @Controller
+@CrossOrigin
 public class MainCourseController implements WebMvcConfigurer{
 
 	@Autowired
