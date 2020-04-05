@@ -60,23 +60,16 @@ public class MainCourseController implements WebMvcConfigurer{
 
 	// save meal
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String checkMaincourseformInfo(@Valid @ModelAttribute("maincourse") MainCourse maincourse, BindingResult bindingResult, Model model) {
+	public String saveMaincourse(@Valid @ModelAttribute("maincourse") MainCourse maincourse, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return addMaincourse(maincourse, model);
-		} else {
+		}	else {
 			mcrepository.save(maincourse);
 		}
 		return "redirect:/maincourselist";
 	}
-
-
-//	// save meal
-//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-//	public String saveMeal(@ModelAttribute MainCourse maincourse) {
-//		mcrepository.save(maincourse);
-//		return "redirect:/maincourselist";
-//	}
+	
 
 	// delete meal
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
