@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<title>Edit side dish/title>
+<title>Edit side dish</title>
 </head>
 <body>
 
@@ -13,6 +13,9 @@
 		<form action="#" th:action="@{../savesidedish}" th:object=${sidedish}
 			method="post">
 			<div class="form-group">
+				<div class="form-group">
+					<input type="hidden" th:field="*{sidedishid}" class="form-control" />
+				</div>
 				<label for="SideDish">Side dish:</label> <input type="text"
 					th:field="${sidedish.sidedish}" class="form-control"
 					placeholder="Edit side dish" />
