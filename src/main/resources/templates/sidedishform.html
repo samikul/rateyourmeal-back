@@ -15,8 +15,9 @@
 			<div class="form-group">
 				<label for="SideDish">Side dish:</label> <input type="text"
 					th:field="${sidedish.sidedish}" class="form-control"
-					placeholder="Enter side dish" required="required" /> 
+					placeholder="Enter side dish" required="required" />
 			</div>
+			<div th:if="${#fields.hasErrors('sidedish')}" th:errors="*{sidedish}">errors</div>
 			<br>
 			<div>
 				<input type="submit" value="Submit" class="btn btn-success btn-sm" />

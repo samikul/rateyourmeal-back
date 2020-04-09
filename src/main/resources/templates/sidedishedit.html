@@ -20,6 +20,7 @@
 					th:field="${sidedish.sidedish}" class="form-control"
 					placeholder="Edit side dish" />
 			</div>
+			<div th:if="${#fields.hasErrors('sidedish')}" th:errors="*{sidedish}">errors</div>
 			<br>
 			<div>
 				<input type="submit" value="Submit" class="btn btn-success btn-sm" />

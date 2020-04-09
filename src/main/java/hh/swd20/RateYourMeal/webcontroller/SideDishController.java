@@ -3,6 +3,8 @@ package hh.swd20.RateYourMeal.webcontroller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -42,7 +44,7 @@ public class SideDishController {
 
 	// save side dish
 	@RequestMapping(value = "/savesidedish", method = RequestMethod.POST)
-	public String saveSidedish(@ModelAttribute SideDish sidedish) {
+	public String saveSidedish(@Valid @ModelAttribute SideDish sidedish) {
 		sdrepository.save(sidedish);
 		return "redirect:/sidedishlist";
 	}
