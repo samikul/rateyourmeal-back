@@ -62,14 +62,15 @@ public class MainCourseController implements WebMvcConfigurer{
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveMaincourse(@Valid @ModelAttribute("maincourse") MainCourse maincourse, BindingResult bindingResult, Model model) {
 
-		if (bindingResult.hasErrors()) {
-			return addMaincourse(maincourse, model);
-		}	else {
+		if (!bindingResult.hasErrors()) {
 			mcrepository.save(maincourse);
+		} else {
+			model.addAttribute("sidedish", sdrepository.findAll()); 
+			model.addAttribute("rating", rrepository.findAll()); 
+			return "maincourseedit";
 		}
-		return "redirect:/maincourselist";
+		return "redirect:maincourselist";
 	}
-	
 
 	// delete meal
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -87,7 +88,7 @@ public class MainCourseController implements WebMvcConfigurer{
 		model.addAttribute("sidedish", sdrepository.findAll());
 		model.addAttribute("rating", rrepository.findAll());
 		return "maincourseedit";
-	}
+	}	
 
 	// RESTful service to get all meals
 	@RequestMapping(value = "/maincourses", method = RequestMethod.GET)

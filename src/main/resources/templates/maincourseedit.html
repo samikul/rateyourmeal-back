@@ -20,6 +20,7 @@
 					th:field="${maincourse.meal}" class="form-control"
 					placeholder="Enter main course" />
 			</div>
+			<div th:if="${#fields.hasErrors('meal')}" th:errors="*{meal}">errors</div>
 			<div>
 				<label for="sidedishlist">Side dish:</label> <select
 					id="sidedishlist" th:field="*{sidedish}" class="form-control">
@@ -37,16 +38,20 @@
 					th:field="${maincourse.price}" class="form-control"
 					placeholder="Enter price" />
 			</div>
+			<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">errors</div>
 			<div class="form-group">
 				<label for="NumberOfRedGlasses">Number of red glasses:</label> <input
 					type="text" th:field="${maincourse.numberOfRedGlasses}"
 					class="form-control" placeholder="Enter the number of red glasses" />
 			</div>
+			<div th:if="${#fields.hasErrors('numberOfRedGlasses')}"
+				th:errors="*{numberOfRedGlasses}">errors</div>
 			<div class="form-group">
 				<label for="Comment">Comment:</label> <input type="text"
 					th:field="${maincourse.comment}" class="form-control"
 					placeholder="Enter comment" />
 			</div>
+			<div th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">errors</div>
 			<div>
 				<label for="ratinglist">Rating:</label> <select id="ratinglist"
 					th:field="*{rating}" class="form-control">
