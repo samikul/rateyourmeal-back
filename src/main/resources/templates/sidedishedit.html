@@ -18,7 +18,7 @@
 				</div>
 				<label for="SideDish">Side dish:</label> <input type="text"
 					th:field="${sidedish.sidedish}" class="form-control"
-					placeholder="Edit side dish" />
+					placeholder="Edit side dish" required="required"  />
 			</div>
 			<div th:if="${#fields.hasErrors('sidedish')}" th:errors="*{sidedish}">errors</div>
 			<br>
